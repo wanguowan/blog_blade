@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/xmlrpc', 'Api\MetaWeblogApiController@errorMessage');
+Route::post('/xmlrpc', 'Api\MetaWeblogApiController@index');
+
+Route::get( '/categorys', 'Api\CategoryController@index' );
+Route::get( '/category/{id}/blogs', 'Api\CategoryController@listBlogs' );
